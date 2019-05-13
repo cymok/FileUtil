@@ -35,13 +35,19 @@ public class FileCharsetUtils {
 			if (file == null || !file.exists()) {
 				continue;
 			}
-			String name = file.getName();
-			if (!(name.endsWith("txt") || name.endsWith("md") || name.endsWith("markdown"))) {
-				continue;
-			}
 			if (file.isFile()) {
+				String name = file.getName();
+				if (!(name.endsWith("txt") || name.endsWith("md") || name.endsWith("markdown"))) {
+					continue;
+				}
 //				nameAddTime(file);
-				logFileCharset(file);
+//				logFileCharset(file);
+				try {
+					String c = EncodeUtil.getEncode(file.getAbsolutePath(), false);
+					System.out.println("文件:\n"+file.getAbsolutePath()+"\n编码:"+c);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			} else if (file.isDirectory()) {
 				charsetConvert(file);
 			}
