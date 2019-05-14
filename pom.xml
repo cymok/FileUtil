@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.mozhx.FileUtil</groupId>
+  <artifactId>FileUtil</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>99-empty</version>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+
+<!-- Do not forget to declare a dependency on jcl-over-slf4j in the        -->
+<!-- dependencies section. Note that the dependency on commons-logging     -->
+<!-- will be imported transitively. You don't have to declare it yourself. -->
+<dependencies>
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>jcl-over-slf4j</artifactId>
+    <version>1.8.0-beta4</version>
+  </dependency>
+</dependencies>
+</project>

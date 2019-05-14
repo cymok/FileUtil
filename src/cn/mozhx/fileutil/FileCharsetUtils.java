@@ -44,7 +44,7 @@ public class FileCharsetUtils {
 //				logFileCharset(file);
 				try {
 					String c = EncodeUtil.getEncode(file.getAbsolutePath(), false);
-					System.out.println("文件:\n"+file.getAbsolutePath()+"\n编码:"+c);
+					System.out.println("文件:\n" + file.getAbsolutePath() + "\n编码:" + c);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -61,10 +61,16 @@ public class FileCharsetUtils {
 	 * @return 编码
 	 */
 	private static void logFileCharset(File file) {
-		String charset = FileUtils.getFileCharsetSimple(file);
-		System.out.println("---");
-		System.out.println("文件:" + file.getAbsolutePath());
-		System.out.println("编码:" + charset);
+		String charset;
+		try {
+			charset = EncodeUtil.getEncode(file.getAbsolutePath(), false);
+			System.out.println("---");
+			System.out.println("文件:" + file.getAbsolutePath());
+			System.out.println("编码:" + charset);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**

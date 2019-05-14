@@ -19,7 +19,7 @@ public class FileRenameNoJekyllStyle {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		File dir = getFileDirPath();
+		File dir = FileUtils.getFileDirPath("输入源文件夹路径:");
 		renameFileRemoveTime(dir);
 	}
 
@@ -72,36 +72,6 @@ public class FileRenameNoJekyllStyle {
 		} else {
 			System.out.println("重命名失败");
 		}
-	}
-
-	/**
-	 * 手动输入文件夹路径
-	 * 
-	 * @return 输入的文件夹File对象
-	 */
-	private static File getFileDirPath() {
-		Scanner scanner = new Scanner(System.in);
-		String inputStr;
-		File dir;
-		while (true) {
-			System.out.println("输入文件夹路径:");
-			inputStr = scanner.nextLine();
-			if (inputStr == null || inputStr.length() == 0) {
-				continue;
-			}
-			try {
-				scanner.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			dir = new File(inputStr);
-			if (dir == null || !dir.exists() || !dir.isDirectory()) {
-				continue;
-			}
-			break;
-		}
-		System.out.println("输入路径为:\n" + inputStr);
-		return dir;
 	}
 
 }

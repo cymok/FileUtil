@@ -13,16 +13,11 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.BitSet;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * @author 自动识别文件编码格式
  *
  */
 public class EncodeUtil {
-	private static Logger logger = LoggerFactory.getLogger(EncodeUtil.class);
-
 	private static int BYTE_SIZE = 8;
     public static String CODE_UTF8 = "UTF-8";
     public static String CODE_UTF8_BOM = "UTF-8_BOM";
@@ -37,7 +32,6 @@ public class EncodeUtil {
      * @throws Exception
      */
     public static String getEncode(String fullFileName, boolean ignoreBom) throws Exception {
-    	logger.debug("fullFileName ; {}", fullFileName);
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(fullFileName));
         return getEncode(bis, ignoreBom);
     }
@@ -73,7 +67,6 @@ public class EncodeUtil {
         } else {
             encodeType = CODE_GBK;
         }
-        logger.info("result encode type : " + encodeType);
         return encodeType;
     }
  
@@ -180,8 +173,6 @@ public class EncodeUtil {
      * @param newCharsetName
      */
     public static void convert(String oldFullFileName, String oldCharsetName, String newFullFileName, String newCharsetName) throws Exception {
-    	logger.info("the old file name is : {}, The oldCharsetName is : {}", oldFullFileName, oldCharsetName);
-    	logger.info("the new file name is : {}, The newCharsetName is : {}", newFullFileName, newCharsetName);
  
         StringBuffer content = new StringBuffer();
  
